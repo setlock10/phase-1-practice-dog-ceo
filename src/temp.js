@@ -1,4 +1,3 @@
-console.log('%c HI', 'color: firebrick');
 const testString='acoustic';
 //console.log(testString.slice(0,1));
 
@@ -26,9 +25,27 @@ document.addEventListener("DOMContentLoaded", () => {
     sel.addEventListener('change',(e)=>{
         console.log('new '+sel.value);
         //console.log(ul.childElementCount);
-        ul.replaceChildren(fetchBreedsFiltered(sel.value));
-        ul.childNodes[0].remove();
+        ul.remove();
         
+        //ul=document.createElement('ul',{is:'dog-breeds'});
+        //document.querySelector('body').appendChild(document.createElement('ul',{is:'dog-breeds'}));
+       // console.log(document);
+        //fetchBreeds();
+
+
+   
+    //     for(let i=0;i<ul.childElementCount;i++){
+    //        ul.childNodes[i].remove();
+    //    }
+       
+       // console.log(lists.length);
+      //  ul.remove();
+       // var sel=document.createElement('select');
+
+       // ul.removeChild(li);
+       //ul.replaceChildren(fetchBreedsFiltered(sel.value));
+
+       // fetchBreedsFiltered(sel.value);
 
     });
 });
@@ -50,18 +67,14 @@ function fetchBreedsFiltered(filter){
     
             if (json.message[key].length==0){
                 // console.log(key);
-                if(key.slice(0,1)==filter){
-                    li.textContent=key;
-                   ul.appendChild(li);
-                }
+                li.textContent=key;
+                ul.appendChild(li);
             }
             else{
                 for (let i=0; i<json.message[key].length;i++){
                 // console.log(key+ " " +json.message[key][i]);
-                    if(key.slice(0,1)==filter){
-                        li.textContent=json.message[key][i]+ " "+key;
-                        ul.appendChild(li);
-                    }
+                li.textContent=json.message[key][i]+ " "+key;
+                ul.appendChild(li);
                 }
             }
         }   
@@ -118,7 +131,4 @@ function fetchImages(){
 
 
    
-
-
-
 
